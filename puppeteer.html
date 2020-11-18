@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cypress Iframe Test</title>
+
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="h-screen w-screen flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-6">Puppeteer</h1>
+
+  <div class="w-full max-w-screen-sm mx-auto text-center">
+    <input
+      class="mb-4 appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      type="text"
+      readonly
+      placeholder="Click the button below ⤵️"
+    >
+    <button class="appearance-none rounded-full font-semibold text-xl px-6 py-3 leading-tight bg-indigo-700 text-white shadow focus:outline-none">
+      Generate Word ♺️️
+    </button>
+
+    <pre class="mt-8 max-w-full mx-6 text-left whitespace-pre-wrap"></pre>
+  </div>
+
+</div>
+
+<script>
+  const WORDS = [
+    'zero',
+    'midnight',
+    'yard',
+    'volume',
+    'boat',
+    'belly',
+    'demand',
+    'intelligence',
+    'literacy',
+    'voice',
+    'miserable',
+    'free',
+    'growth',
+    'residence',
+    'apathy',
+  ];
+
+  const input = document.querySelector('input');
+  const btn = document.querySelector('button');
+  btn.addEventListener('click', () => {
+    input.value = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+    btn.innerText = 'Done! 🙂';
+    setTimeout(() => btn.innerText = 'Generate Another Word ♺️️️', 5000);
+  });
+</script>
+</body>
+</html>
